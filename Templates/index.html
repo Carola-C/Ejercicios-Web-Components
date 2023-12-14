@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+</head>
+<body>
+    <template>
+        <style>
+            :host {
+                display: block;
+                width: 100%;
+                background-color: rgb(163, 225, 163);
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+            #head {
+                text-align: center;
+                padding: 20px;
+                padding-top: 5px;
+                padding-bottom: 5px;
+                border: 10px dotted darkcyan;
+                color: burlywood;
+            }
+            #head h1{
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+            #mensaje{
+                color: chocolate;
+            }
+            #mensaje p {
+                padding: 20px;
+                text-align: right;
+                font-style: oblique;
+                font-size: larger;
+            }
+            #boton {
+                height: 25px;
+                display: block;
+                margin-left: 30%;
+                margin-right: 30%;
+                margin-top: 20px;
+                margin-bottom: 20px;
+                font-style: italic;
+                border: 3px double rgb(99, 6, 161);
+                border-radius: 25px;
+                cursor: pointer;
+                text-align: center;
+                background-color: rgb(203, 63, 203);
+                color: rgb(69, 58, 196);
+            }
+        </style>
+        <div id="head">
+            <h1>Contenido desde un template</h1>
+        </div>
+        <div id="mensaje">
+            <p>Podemos crear estilos en templates que
+                no son afectados por los del origen
+            </p>
+        </div>
+        <div id="boton">
+            Pulsame
+        </div>
+    </template>
+
+    <mi-saludo></mi-saludo>
+    <h1>Prueba</h1>
+    <h4>Estos estilos son globles Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur adipisci ad, voluptatem aperiam veritatis explicabo inventore incidunt dolorum. Sunt neque porro non magni est facere hic libero id nam. Fugiat!</h4>
+    <script src="main.js">
+    </script>
+</body>
+</html>
