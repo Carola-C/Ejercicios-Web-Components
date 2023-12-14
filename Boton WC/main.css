@@ -1,0 +1,16 @@
+@charset "utf-8";
+mi-boton, mi-boton-2 {
+    padding: 10px;
+    border: 5px solid green;
+}
+div {
+    padding: 0 auto;
+    margin: 25px;
+    background-color: blanchedalmond;
+    height: 100px;
+    text-align: center;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+p{
+    padding-top: 15px;
+}
