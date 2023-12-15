@@ -135,7 +135,7 @@ class MiBoton extends HTMLElement {
     }
 
     static get observedAttributes(){
-        return ['consultar', 'cancelar'];
+        return ['consultar', 'cancelar','pdf'];
     }
     attributeChangedCallback(attrName, oldVal, newVal){
         if (attrName =='consultar') {
@@ -150,6 +150,60 @@ class MiBoton extends HTMLElement {
             });
             this.innerHTML = 'Cancelar';
         }
+        if (attrName =='pdf') {
+            this.addEventListener('click',function(){
+                generarPDF()
+            });
+            this.innerHTML = 'OK';
+        }
     }
 }
 customElements.define('mi-boton', MiBoton);
+function generarPDF(){
+    fetch("./json/datos.json")
+        .then(response => {
+            return response.json();
+        })
+        .then(personas => {
+            consultarPersonas(personas);
+        })
+        .catch(error => {
+            console.log('Request error' + error);
+        });
+
+    function consultarPersonas(personas) {
+        var doc = new jsPDF('landscape');
+        var tabla = document.getElementById('tab');
+        doc.fromHTML(
+            tabla, 
+            40,
+            function (dispose) {
+                pdf.save('Estadistica.pdf');
+            });
+/*
+        var cadena= '      ID      --      Nombre      --      Salario     --      Edad';
+        doc.setTextColor(100);
+        doc.text(20, 20, cadena);
+        for (i = 0; i < personas.length; i++) {
+            if (document.getElementById("inBuscar").value == personas[i]['employee_name']) {
+                cadena =`${personas[i]['employee_name']} -- ${personas[i]['employee_name']}`;
+                doc.setTextColor(255,0,0);
+                doc.text(20, 20, cadena);
+            }
+            let band = 10*i+30
+            if (i%2==0) {
+                cadena =`${personas[i]['employee_name']} -- ${personas[i]['employee_name']} -- ${personas[i]['employee_salary']} -- ${personas[i]['employee_age']}`;
+                doc.setTextColor(0,0,255);
+                doc.text(29,band,cadena);
+            } else {
+                cadena =`${personas[i]['employee_name']} -- ${personas[i]['employee_name']} -- ${personas[i]['employee_salary']} -- ${personas[i]['employee_age']}`;
+                doc.setTextColor(0,255,0);
+                doc.text(29,band,cadena);
+            }
+            
+        }
+        */
+       doc.save('Test.pdf');
+    }
+    
+}
