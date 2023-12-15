@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Page</title>
+    <link rel="stylesheet" href="css/main.css">
+    
+</head>
+<body>
+    <template>
+        <style>
+            div{
+                background-color: darkorange;
+                color: slategrey;
+                height: 50px;
+            }
+        </style>
+        <div>
+            <h1>view: SamplePage</h1>
+        </div>
+    </template>
+    <header>
+        <mi-header></mi-header>
+    </header>
+    <div>
+        <form>
+            <label for="buscar">Filtro</label>
+            <select type="text" name="inBuscar" id="inBuscar">
+                <option value=""></option>
+            </select>
+            <mi-boton consultar></mi-boton>
+            <mi-boton cancelar></mi-boton>
+            <p id="msj" style="display: none;">Escoge a un empleado</p>
+        </form>
+        <table id="tabla">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Salario</th>
+                    <th>Edad</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <footer></footer>
+    <script src="js/main.js"></script>
+</body>
+</html>
