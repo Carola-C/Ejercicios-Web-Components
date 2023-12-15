@@ -60,7 +60,6 @@ function cancelar() {
         });
 
     function consultarPersonas(personas) {
-        console.log('Entro a consultarPersonas')
         var personas2 = [];
         var indice = 0;
         var table = document.getElementById("tabla");
@@ -93,7 +92,6 @@ function cancelar() {
 }
 
 function llenar(){
-    console.log("Entro a llenar ");
     fetch("./json/datos.json")
         .then(response => {
             return response.json();
@@ -174,36 +172,11 @@ function generarPDF(){
     function consultarPersonas(personas) {
         var doc = new jsPDF('landscape');
         var tabla = document.getElementById('tab');
+        source = tabla;
         doc.fromHTML(
             tabla, 
-            40,
-            function (dispose) {
-                pdf.save('Estadistica.pdf');
-            });
-/*
-        var cadena= '      ID      --      Nombre      --      Salario     --      Edad';
-        doc.setTextColor(100);
-        doc.text(20, 20, cadena);
-        for (i = 0; i < personas.length; i++) {
-            if (document.getElementById("inBuscar").value == personas[i]['employee_name']) {
-                cadena =`${personas[i]['employee_name']} -- ${personas[i]['employee_name']}`;
-                doc.setTextColor(255,0,0);
-                doc.text(20, 20, cadena);
-            }
-            let band = 10*i+30
-            if (i%2==0) {
-                cadena =`${personas[i]['employee_name']} -- ${personas[i]['employee_name']} -- ${personas[i]['employee_salary']} -- ${personas[i]['employee_age']}`;
-                doc.setTextColor(0,0,255);
-                doc.text(29,band,cadena);
-            } else {
-                cadena =`${personas[i]['employee_name']} -- ${personas[i]['employee_name']} -- ${personas[i]['employee_salary']} -- ${personas[i]['employee_age']}`;
-                doc.setTextColor(0,255,0);
-                doc.text(29,band,cadena);
-            }
-            
-        }
-        */
-       doc.save('Test.pdf');
+            40);
+       doc.save('Lista.pdf');
     }
     
 }
